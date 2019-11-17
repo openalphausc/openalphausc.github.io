@@ -25,12 +25,14 @@ var bikers;
 var morning;
 var rushHour;
 var map;
-var groundlayer, backgroundlayer, coffeelayer, horselayer;
+var groundlayer, backgroundlayer, obstaclelayer, coffeelayer, horselayer;
 // to keep track of:
 var timeText;
+var gameStateText;
 var bikeHitTimer = 0;
 var immunityTimer = 0;
 var coffeeBoostTimer = 0;
+var oofTimer = 0;
 
 function preload() {
   this.load.image('easy', 'assets/easy.png');
@@ -54,7 +56,7 @@ const gameState = {
   delay: 2000,
   bikerVelocity: 160,
   playerVelocity: 200,
-  timeLeft: 30,
+  timeLeft: 45,
 };
 
 function setEasyMode() {
@@ -66,7 +68,7 @@ function setEasyMode() {
 }
 function setHardMode() {
     console.log('hard');
-    gameState.timeLeft = 30;
+    gameState.timeLeft = 45;
     gameState.delay = 800;
     gameState.playerVelocity = 260;
     gameState.bikerVelocity = 260;
@@ -87,6 +89,8 @@ function create() {
   backgroundlayer = map.createStaticLayer("BackgroundLayer", tileset, 0, 0);
   groundlayer = map.createStaticLayer("GroundLayer", tileset, 0, 0);
   groundlayer.setCollisionByExclusion([-1]);
+  // obstacle layer
+  obstaclelayer = map.createDynamicLayer("ObstacleLayer", tileset, 0, 0);
   // coffee layer
   var coffee = map.addTilesetImage('coffee');
   coffeelayer = map.createDynamicLayer('CoffeeLayer', coffee, 0, 0);
@@ -105,9 +109,11 @@ function create() {
 
   morning.on('pointerup', function() {
     setEasyMode();
+    rushHour.destroy();
   });
   rushHour.on('pointerup', function() {
     setHardMode();
+    morning.destroy();
   });
 
   // set the boundaries of our game world
@@ -166,6 +172,9 @@ function create() {
 
   // });
 
+  // set up gameStateText
+  gameStateText = this.add.text(150, 225, '', { fontSize: '30px', fill: '#ffffff'});
+
   // setting up timer
   timeText = this.add.text(350, 10, gameState.timeLeft, { fontSize: '20px', fill: '#ffffff'});
   const timerLoop = this.time.addEvent({
@@ -180,7 +189,9 @@ function create() {
     timeText.setText(gameState.timeLeft);
     if (gameState.timeLeft <= 0) {
       gameState.timeLeft = 1;
-      this.add.text(150, 225, 'GAME OVER', { fontSize: '30px', fill: '#ffffff'});
+      console.log('lose');
+      gameStateText.setText("GAME OVER");
+      timeText.setScrollFactor(0)
       bikerGenLoop.destroy();
       this.physics.pause();
     }
@@ -188,9 +199,11 @@ function create() {
     coffeeBoostTimer--;
     bikeHitTimer--;
     immunityTimer--;
+    oofTimer--;
   }
 
   timeText.setScrollFactor(0)
+  gameStateText.setScrollFactor(0)
 
   // Camera
   // set bounds so the camera won't go outside the game world
@@ -198,13 +211,25 @@ function create() {
   // make the camera follow the player
   this.cameras.main.startFollow(player);
 
+  obstaclelayer.setTileIndexCallback(15, destroyObstacle, this); 
+  obstaclelayer.setTileIndexCallback(20, destroyObstacle, this);   
+  this.physics.add.overlap(player, obstaclelayer);
+
   coffeelayer.setTileIndexCallback(21, collectCoffee, this);   
   this.physics.add.overlap(player, coffeelayer);
+
 }
 
 function collectCoffee(sprite, tile) {
     coffeelayer.removeTileAt(tile.x, tile.y);
     coffeeBoostTimer = 3;
+    return false;
+}
+
+function destroyObstacle(sprite, tile) {
+    console.log('remove cone');
+    oofTimer = 1;
+    obstaclelayer.removeTileAt(tile.x, tile.y);
     return false;
 }
 
@@ -219,6 +244,10 @@ function update() {
 
   if (bikeHitTimer > 0) {
     speed = 0;
+  }
+
+  if (oofTimer > 0) {
+    speed = gameState.playerVelocity - 100;
   }
 
   if (gameState.cursors.right.isDown) {
@@ -241,7 +270,8 @@ function update() {
   }
 
   if (player.x > 5950) {
-      this.add.text(150, 225, 'YOU WIN', { fontSize: '30px', fill: '#ffffff'});
+      console.log('win');
+      gameStateText.setText("YOU WIN!");
       this.physics.pause();
   }
 }
