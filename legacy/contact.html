@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<title>Scope USC - Contact</title>
+<meta name="description" content="Scope is USC's premier computer science club where the top students come together to build, create, and learn.">
+<meta property="og:title" content="Scope USC">
+<meta property="og:description" content="Scope is USC's premier computer science club where top students come together to build, create, and learn.">
+<meta property="og:site_name" content="Scope">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="http://uscscope.com">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="styles/main.css">
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_6nASUONztcTXSO5TYrOdS");
+   })();
+</script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-fixed-top navbar-light">
+        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+        &#9776;
+      </button>
+    <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+        <a class="nav-link" href="/">HOME</a>
+        <a class="nav-link" href="contact">CONTACT US</a>
+        <a class="nav-link" href="apply">APPLY</a>
+    </div>
+    </nav>
+</header>
+
+<!-- Modal -->
+<div id="contact-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Thanks for your response!</h4>
+          <p>We'll be in contact soon.</p>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<div style="padding-top: 5em;">
+    <!--<div class="col-md-12">
+        <h2>Get in contact with us!</h2>
+      </div>-->
+    <div class="container">
+      <div class="col-md-12 contact-banner">
+        <h2>Get in contact with us!</h2>
+      </div>
+    </div>
+    <div class="container contact-body"> 
+      <div class="contact-form">
+        <div class="contact-info">
+          <p>Contact Information</p>
+          <div class="form-group contact-name">
+            <input type="text" class="form-control" placeholder="First Name" id="firstName">
+            <input type="text" class="form-control" placeholder="Last Name" id="lastName">
+          </div>
+          <div class="form-group contact-email">
+            <input type="text" class="form-control" placeholder="Email" id="email">
+          </div>
+        </div>
+        <hr />
+        <div class="contact-message">
+          <p>Enter your message below</p>
+          <textarea rows="7" class="form-control" id="contactMessage"></textarea>
+        </div>
+        <div class="contact-submit">
+          <div class="contact-submit-button" onclick="submit()">
+            Submit
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- I hate this way of doing it almost as much as I hate bootstrap -->
+    <div id="modal-trigger" data-toggle="modal" data-target="#contact-modal" style="display: none;"></div>
+
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82550600-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+<script>
+  var config = {
+    apiKey: "AIzaSyD9Em1Cj3aMeFob_fgbKdzKm42WS7Q3T6c",
+    authDomain: "scope-website.firebaseapp.com",
+    databaseURL: "https://scope-website.firebaseio.com/",
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+<script src="contact.js"></script>
+</body>
+</html>
