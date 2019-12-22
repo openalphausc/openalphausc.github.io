@@ -18,9 +18,6 @@ import Projects from './components/Projects.js';
 import Calendar from './components/Calendar.js';
 import {HashLink as Link} from 'react-router-hash-link';
 
-import Scroll from 'react-scroll';
-
-const ScrollLink = Scroll.ScrollLink;
 
 const useStyles = makeStyles(theme => ({
  root: {
@@ -41,10 +38,6 @@ const useStyles = makeStyles(theme => ({
    padding: theme.spacing(2),
  }
 }));
-
-function Header() {
-  return <img src={OATransparentLogo} alt='Logo'/>;
-}
 
 function ScrollTop(props) {
   const {children, window} = props;
@@ -80,28 +73,26 @@ export default function ButtonAppBar(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position='static'>
-        <Toolbar>
-          <Typography color='secondary' variant='inherit' align='inherit' className={classes.title}>
-            OPEN ALPHA USC
-          </Typography>
-          <span className={classes.button}>
-            <Link to='/Members'>
-              <Button color='secondary'>Members</Button>
-            </Link>
-            <Link to='/Projects#student-developed-games'>
-             <Button color='secondary'>Projects</Button>
-            </Link>
-            <Link to='/Calendar#events'>
-             <Button color='secondary'>Calendar</Button>
-            </Link>
-             <Button color='secondary'>About</Button>
-          </span>
-          
-        </Toolbar>
-      </AppBar>
+        <AppBar>
+          <Toolbar>
+            <Typography color='secondary' variant='inherit' align='inherit' className={classes.title}>
+              OPEN ALPHA USC
+            </Typography>
+            <span className={classes.button}>
+             <Link to='/Members'>
+               <Button color='secondary'>Members</Button>
+             </Link>
+             <Link to='/Projects#student-developed-games'>
+              <Button color='secondary'>Projects</Button>
+             </Link>
+             <Link to='/Calendar#events'>
+              <Button color='secondary'>Calendar</Button>
+             </Link>
+              <Button color='secondary'>About</Button>
+           </span>
+          </Toolbar>
+        </AppBar>
       <Toolbar id='back-to-top-anchor'/>
-     
       <Box className={classes.section}>
         <Members/>
       </Box>
@@ -111,8 +102,6 @@ export default function ButtonAppBar(props) {
       <Box className={classes.section}>
         <Calendar/>
       </Box>
-
-
 
       <ScrollTop {...props}>
         <Fab color='secondary' size='small' aria-label='scroll back to top'>
