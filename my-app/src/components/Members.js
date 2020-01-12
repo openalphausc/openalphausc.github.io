@@ -7,47 +7,88 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import CharlieIMG from '../assets/charlie.jpg';
+import ColinIMG from '../assets/colin.jpg';
+import RachelIMG from '../assets/rachel.jpeg';
+import AlainaIMG from '../assets/alaina.jpg';
+import SamIMG from '../assets/sam.jpg';
+import AlisaIMG from '../assets/alisa.jpg';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
   },
   media: {
-    height: 140,
+    height: 345,
   },
-});
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.primary,
+  }
+}));
 
-export default function MediaCard() {
+export default function Grid() {
   const classes = useStyles();
 
   return (
-    <Card className={classes.card}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+
+    <div className={classes.root}>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <Card className={classes.card}>
+            <CardActionArea>
+              <CardMedia
+                className={classes.media}
+                image={CharlieIMG}
+                title="Charlie Feuerborn"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2" align='center'>
+                  Charlie Feuerborn
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+                <Typography variant="body2" color="textSecondary" component="p">
+                  Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+                  across all continents except Antarctica
           </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <Button size="small" color="inherit">
+                Learn More
         </Button>
-        <Button size="small" color="primary">
-          Learn More
+            </CardActions>
+          </Card>
+        </Grid>
+
+        <Card className={classes.card}>
+          <CardActionArea>
+            <CardMedia
+              className={classes.media}
+              image={ColinIMG}
+              title="Colin Spiridonov"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2" align='center'>
+                Colin Spiridonov
+          </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+                across all continents except Antarctica
+          </Typography>
+            </CardContent>
+          </CardActionArea>
+          <CardActions>
+            <Button size="small" color="inherit">
+              Learn More
         </Button>
-      </CardActions>
-    </Card>
-    
+          </CardActions>
+        </Card>
+      </Grid>
+    </div>
   );
 }
 
