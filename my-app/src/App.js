@@ -102,6 +102,7 @@ export default function PersistentDrawerLeft() {
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
+        color="highlight"
       >
         <Toolbar>
           <IconButton
@@ -114,7 +115,7 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Persistent drawer
+            OPEN ALPHA
           </Typography>
         </Toolbar>
       </AppBar>
@@ -139,7 +140,6 @@ export default function PersistentDrawerLeft() {
               <ListItemIcon>
               <HouseIcon/>
               </ListItemIcon>
-              <Route path='/' component={Home} exact/>
               <Link to='/'>Home</Link>
           </ListItem>
         </List>
@@ -148,7 +148,6 @@ export default function PersistentDrawerLeft() {
               <ListItemIcon>
               <SportsIcon/>
               </ListItemIcon>
-              <Route path='/' component={Projects} />
               <Link to='/projects'>Projects</Link>
           </ListItem>
         </List>
@@ -171,6 +170,8 @@ export default function PersistentDrawerLeft() {
         <div className={classes.drawerHeader} />
  
       </main>
+
+      <Home/>
     </div>
   );
 }
