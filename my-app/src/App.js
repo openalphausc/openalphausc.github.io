@@ -102,7 +102,7 @@ export default function PersistentDrawerLeft() {
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
-        color="highlight"
+        color="secondary"
       >
         <Toolbar>
           <IconButton
