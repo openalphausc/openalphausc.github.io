@@ -20,8 +20,8 @@ import HouseIcon from '@material-ui/icons/House';
 import MailIcon from '@material-ui/icons/Mail';
 import SportsIcon from '@material-ui/icons/SportsEsports';
 import Home from './views/Home/content';
-import Projects from './views/Projects/projects';
-import {BrowserRouter, Route, Switch, Link} from 'react-router-dom';
+import Members from './views/Members/members';
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -119,7 +119,6 @@ export default function PersistentDrawerLeft() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Switch>
       <Drawer
         className={classes.drawer}
         variant="persistent"
@@ -129,12 +128,14 @@ export default function PersistentDrawerLeft() {
           paper: classes.drawerPaper,
         }}
       >
+        <Router>
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
         <Divider />
+
         <List component='nav' aria-label='main menu'>
           <ListItem button>
               <ListItemIcon>
@@ -148,20 +149,17 @@ export default function PersistentDrawerLeft() {
               <ListItemIcon>
               <SportsIcon/>
               </ListItemIcon>
-              <Link to='/projects'>Projects</Link>
+              <Link to='/members/'>Members</Link>
           </ListItem>
         </List>
         <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
+ 
+
+
+        </Router>
       </Drawer>
-      </Switch>
+ 
+     
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,
