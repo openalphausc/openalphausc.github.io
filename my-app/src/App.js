@@ -17,10 +17,13 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import HouseIcon from '@material-ui/icons/House';
-import MailIcon from '@material-ui/icons/Mail';
 import SportsIcon from '@material-ui/icons/SportsEsports';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
+import GroupIcon from '@material-ui/icons/Group';
 import Home from './views/Home/content';
 import Members from './views/Members/members';
+import About from './views/About/about';
+import Projects from './views/Projects/projects';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 
 const drawerWidth = 240;
@@ -150,10 +153,26 @@ export default function PersistentDrawerLeft() {
         </List>
         <List component='nav' aria-label='projects menu'>
           <ListItem button>
+            <ListItemIcon>
+            <MenuBookIcon/>
+            </ListItemIcon>
+            <li><Link to="/projects">Projects</Link></li>
+          </ListItem>
+        </List>
+        <List component='nav' aria-label='members menu'>
+          <ListItem button>
               <ListItemIcon>
               <SportsIcon/>
               </ListItemIcon>
               <li><Link to="/members">Members</Link></li>
+          </ListItem>
+        </List>
+        <List component='nav' aria-label='about us'>
+          <ListItem button>
+            <ListItemIcon>
+             <GroupIcon/>
+            </ListItemIcon>
+            <li><Link to="/about-us">About</Link></li>
           </ListItem>
         </List>
   
@@ -167,7 +186,9 @@ export default function PersistentDrawerLeft() {
       </Drawer>
       <Switch>
           <Route path="/" exact component={Home}/>
+          <Route path="/projects" component={Projects}/>
           <Route path="/members" component={Members}/>
+          <Route path="/about-us" component={About}/>
       </Switch>
         </Router>
     
