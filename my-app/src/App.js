@@ -14,16 +14,16 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import HouseIcon from '@material-ui/icons/House';
 import SportsIcon from '@material-ui/icons/SportsEsports';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import GroupIcon from '@material-ui/icons/Group';
+import ListAltIcon from '@material-ui/icons/ListAlt';
 import Home from './views/Home/content';
 import Members from './views/Members/members';
 import About from './views/About/about';
 import Projects from './views/Projects/projects';
+import Apply from './views/Apply/apply';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 
 const drawerWidth = 240;
@@ -167,6 +167,14 @@ export default function PersistentDrawerLeft() {
               <li><Link to="/members">Members</Link></li>
           </ListItem>
         </List>
+        <List component='nav' aria-label='apply'>
+          <ListItem button>
+            <ListItemIcon>
+             <ListAltIcon/>
+            </ListItemIcon>
+            <li><Link to="/apply">Apply</Link></li>
+          </ListItem>
+        </List>
         <List component='nav' aria-label='about us'>
           <ListItem button>
             <ListItemIcon>
@@ -188,6 +196,7 @@ export default function PersistentDrawerLeft() {
           <Route path="/" exact component={Home}/>
           <Route path="/projects" component={Projects}/>
           <Route path="/members" component={Members}/>
+          <Route path="/apply" component={Apply}/>
           <Route path="/about-us" component={About}/>
       </Switch>
         </Router>
