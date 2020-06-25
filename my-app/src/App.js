@@ -119,7 +119,9 @@ export default function PersistentDrawerLeft() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Drawer
+      
+        <Router>
+        <Drawer
         className={classes.drawer}
         variant="persistent"
         anchor="left"
@@ -128,7 +130,9 @@ export default function PersistentDrawerLeft() {
           paper: classes.drawerPaper,
         }}
       >
-        <Router>
+          <main>
+            <nav>
+            <ul>
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
@@ -141,7 +145,7 @@ export default function PersistentDrawerLeft() {
               <ListItemIcon>
               <HouseIcon/>
               </ListItemIcon>
-              <Link to='/'>Home</Link>
+              <li><Link to="/">Home</Link></li>
           </ListItem>
         </List>
         <List component='nav' aria-label='projects menu'>
@@ -149,16 +153,24 @@ export default function PersistentDrawerLeft() {
               <ListItemIcon>
               <SportsIcon/>
               </ListItemIcon>
-              <Link to='/members/'>Members</Link>
+              <li><Link to="/members">Members</Link></li>
           </ListItem>
         </List>
+  
         <Divider />
- 
+        </ul>
+        </nav>
 
+   
 
-        </Router>
+      </main>
       </Drawer>
- 
+      <Switch>
+          <Route path="/" exact component={Home}/>
+          <Route path="/members" component={Members}/>
+      </Switch>
+        </Router>
+    
      
       <main
         className={clsx(classes.content, {
@@ -169,7 +181,7 @@ export default function PersistentDrawerLeft() {
  
       </main>
 
-      <Home/>
+    
     </div>
   );
 }
