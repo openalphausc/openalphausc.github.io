@@ -5,11 +5,17 @@ import games from './USC_Games.png';
 import viterbi from './USC_Viterbi.png';
 import sca from './USC_SCA.png';
 import Typography from '@material-ui/core/Typography';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import PropTypes from 'prop-types';
+import Zoom from '@material-ui/core/Zoom';
+import Fab from '@material-ui/core/Fab';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import Toolbar from '@material-ui/core/Toolbar';
 
 
 console.log(logo);
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   card: {
     maxWidth: 345,
   },
@@ -19,16 +25,65 @@ const useStyles = makeStyles({
   bottomContainer: {
     flex: 1,
     backgrounColor: 'secondary'
-  }
+  },
+  root: {
+    position: 'fixed',
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
+  },
 
-});
+}));
 
-export default function MediaCard() {
+
+
+function ScrollTop(props) {
+  
+  const { children, window } = props;
+  const classes = useStyles();
+  // Note that you normally won't need to set the window ref as useScrollTrigger
+  // will default to window.
+  // This is only being set here because the demo is in an iframe.
+  const trigger = useScrollTrigger({
+    target: window ? window() : undefined,
+    disableHysteresis: true,
+    threshold: 100,
+  });
+
+
+
+ScrollTop.propTypes = {
+  children: PropTypes.element.isRequired,
+  /**
+   * Injected by the documentation to work in an iframe.
+   * You won't need it on your project.
+   */
+  window: PropTypes.func,
+};
+
+  const handleClick = (event) => {
+    const anchor = (event.target.ownerDocument || document).querySelector('#back-to-top-anchor');
+
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
+  return (
+    <Zoom in={trigger}>
+      <div onClick={handleClick} role="presentation" className={classes.root}>
+        {children}
+      </div>
+    </Zoom>
+  );
+}
+
+export default function MediaCard(props) {
   const classes = useStyles();
 
   return (
     <div>
     <div>
+    <Toolbar id="back-to-top-anchor" />
       <img src={logo} width='100%'/>
 
       <Typography
@@ -92,7 +147,14 @@ export default function MediaCard() {
       <Typography variant="h5" color="secondary">
       Renowned for talent across the board. Let's use that.
       </Typography>
+
+    <ScrollTop {...props}>
+        <Fab color="secondary" size="small" aria-label="scroll back to top">
+          <KeyboardArrowUpIcon />
+        </Fab>
+      </ScrollTop>
     </div>
+
     </div>
   );
 }
