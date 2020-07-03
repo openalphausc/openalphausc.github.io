@@ -31,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
     bottom: theme.spacing(2),
     right: theme.spacing(2),
   },
+  images: {
+    marginLeft: '25%',
+  }
 
 }));
 
@@ -84,7 +87,7 @@ export default function MediaCard(props) {
     <div>
     <div>
     <Toolbar id="back-to-top-anchor" />
-      <img src={logo} width='100%'/>
+      <img className={classes.images} src={logo} width='50%'/>
 
       <Typography
         variant="h4"
