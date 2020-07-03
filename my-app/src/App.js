@@ -7,15 +7,12 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
 import Home from './views/Home/content';
-import Members from './views/Members/members';
 import About from './views/About/about';
 import Projects from './views/Projects/projects';
 import Apply from './views/Apply/apply';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
-import ListItem from '@material-ui/core/ListItem';
-import Grid from '@material-ui/core/Grid';
-import List from '@material-ui/core/List';
-import { Paper, Tabs, Tab, Table } from '@material-ui/core';
+import {Tabs, Tab} from '@material-ui/core';
+import ToolbarGroup from '@material-ui/core/Toolbar';
 
 
 function HideOnScroll(props) {
@@ -56,18 +53,27 @@ export default function HideAppBar(props) {
         <HideOnScroll {...props}>
           <AppBar color="secondary">
             <Toolbar>
+              <ToolbarGroup firstChild={true} float="left">
               <Typography variant="h6">OPEN ALPHA</Typography>
+              </ToolbarGroup>
+              <ToolbarGroup style={{
+                float : 'none',
+                width : '900px',
+                marginLeft : 'auto',
+                marginRight : 'auto'
+              }}>
                   <Tabs
                     value={value}
                     onChange={handleChange}
                     indicatorColor={"primary"}
-                    centered={true}
+                    centered
                   >
                     <Tab label="Home" to="/" component={Link}/>
                     <Tab label="About" to="/about" component={Link}/>
                     <Tab label="Projects" to="/projects" component={Link}/>
                     <Tab label="Apply" to="/apply" component={Link}/>
                   </Tabs>
+                  </ToolbarGroup>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
