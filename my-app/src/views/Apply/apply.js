@@ -14,7 +14,7 @@ export default function Members()
             align="center"
             color="secondary"
             gutterBottom="true">
-              Where great games start.
+              TEST
           </Typography>
           <br/>
           <br/>
@@ -27,8 +27,23 @@ export default function Members()
           </Typography>
       
         
+          <Typography
+            variant="h4"
+            align="center"
+            color="secondary"
+            gutterBottom="true">
+              Application page coming soon.
+          </Typography>
         </div>
-        
+        <div id="">
+          <Typography
+            variant="h4"
+            align="center"
+            color="primary"
+            gutterBottom="true">
+              TEST 2
+          </Typography>
+        </div>
         </div>
       );
 }
