@@ -33,7 +33,14 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '25%',
   },
   centered: {
-    justifyContent: 'center'
+    justifyContent: 'center',
+  },
+  qa: {
+    maxWidth: '65rem',
+    paddingRight: '5%',
+    paddingLeft: '5%',
+    marginRight: 'auto',
+    marginLeft: 'auto',
   },
 
 }));
@@ -91,17 +98,21 @@ export default function MediaCard(props) {
           align="center"
           color="secondary"
           gutterBottom="true">
+          <br />
+          <br />
           Join our next cohort.
           </Typography>
         <br />
         <br />
         <Typography
-          variant="h2"
+          variant="h3"
           align="center"
           color="secondary"
           gutterBottom="true">
           Applications open here at the beginning of each semester.
           </Typography>
+        <br />
+        <br />
 
 
         <Typography
@@ -123,6 +134,7 @@ export default function MediaCard(props) {
           color="secondary"
           align="center"
           href="/mailinglist"
+          size="large"
           >
           Stay Updated
         </Button>
@@ -149,7 +161,7 @@ export default function MediaCard(props) {
           </Typography>
       </div>
 
-      <div id="QA">
+      <div id="QA" className={classes.qa}>
         <Typography variant="h5" gutterBottom="true" color="secondary">
         <b>Q: What’s the time commitment?</b>
         <br />
