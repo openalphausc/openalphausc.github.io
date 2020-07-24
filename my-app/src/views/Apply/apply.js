@@ -78,11 +78,11 @@ export default function MediaCard(props) {
       <div>
 
         <Typography
-          variant="h4"
+          variant="h1"
           align="center"
           color="secondary"
           gutterBottom="true">
-          TEST
+          Join our next cohort.
           </Typography>
         <br />
         <br />
