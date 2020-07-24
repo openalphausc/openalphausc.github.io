@@ -1,5 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import greatGames from './GreatGames_Fall2020.png';
+import board from './OA_Board.JPG';
+import MailingList from '../Mailinglist/mailinglist';
 import Typography from '@material-ui/core/Typography';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import PropTypes from 'prop-types';
@@ -8,6 +11,7 @@ import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -28,8 +32,12 @@ const useStyles = makeStyles((theme) => ({
   images: {
     marginLeft: '25%',
   },
+  centered: {
+    justifyContent: 'center'
+  },
 
 }));
+
 
 function ScrollTop(props) {
 
@@ -76,9 +84,9 @@ export default function MediaCard(props) {
   const classes = useStyles();
   return (
     <div>
-      <div>
+      <div id="back-to-top-anchor">
 
-        <Typography
+        <Typography 
           variant="h1"
           align="center"
           color="secondary"
@@ -103,6 +111,8 @@ export default function MediaCard(props) {
           gutterBottom="true">
           Be the first to know when applications open.
           </Typography>
+        <br />
+        <br />
       </div>
       <div style=
           {{justifyContent: 'center',
@@ -112,83 +122,99 @@ export default function MediaCard(props) {
           variant="contained" 
           color="secondary"
           align="center"
-          href="#contained-buttons"
-          
+          href="/mailinglist"
           >
           Stay Updated
         </Button>
       </div>
-      <div id="">
+
+      <Switch>
+          <Route path="/mailinglist" component={MailingList}/>
+</Switch>
+      <div style=
+          {{justifyContent: 'center',
+          textAlign:'center'}}>
+      <img src={greatGames} width="60%"/>
+      </div>
+
+      <img src={board} width="100%" MAXheight="646px" />
+
+      <div id="FAQTitle">
         <Typography
-          variant="h4"
+          variant="h2"
           align="center"
-          color="primary"
+          color="secondary"
           gutterBottom="true">
-          TEST 2
+          <b>FAQ</b>
           </Typography>
       </div>
 
-      <div>
-        <Toolbar id="back-to-top-anchor" />
-
-        <Typography
-          variant="h4"
-          align="center"
-          color="secondary"
-          gutterBottom="true">
-          Where great games start.
-  </Typography>
+      <div id="QA">
+        <Typography variant="h5" gutterBottom="true" color="secondary">
+        <b>Q: What’s the time commitment?</b>
+        <br />
+        A: We’ll have official meetings Thursdays 8-9:30 PM, with bonding activities and retreats on other dates. 
+        It’s like a really close group of friends who always want to hang out, especially on Thursday evenings.
         <br />
         <br />
-        <Typography
-          variant="h4"
-          align="center"
-          color="secondary"
-          gutterBottom="true">
-          Applications open at the beginning of each semester.
-  </Typography>
+        
+        <b>Q: What kind of majors do you accept? </b>
         <br />
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="secondary"
-          gutterBottom="true">
-          Be the first to know when applications open.
-  </Typography>
-
-      </div>
-      <br />
-      <div>
-        <Typography variant="h6" gutterBottom="true" color="secondary">
-          o·pen al·pha
-  <br />
-  /ōpən alfə/
-  <br />
-  noun
-  <br />
-  a cycle of testing a game in an early stage, wherein the test group is much larger than that of closed testing and typically open to anyone who is interested.
-  </Typography>
+        A: All majors are welcome! English? Biology? Philosophy? Great developers are inspired by a range of different subjects.
+        <br />
         <br />
 
-      </div>
-      <Typography variant="h6" color="secondary">
-        Our Mission
-  <br />
-  Bring a game from conception to an open-alpha release each development cycle (semester/year)
+        <b>Q: Do I need to have any experience? Are there any other requirements to join?</b>
+        <br />
+        A: No experience required! We’re looking for people with a drive to learn and a passion for making games! We recommend taking CTIN 488: Game Design Workshop if 
+        you’re interested in design, and if you want to program, we suggest having some previous experience.
+        <br />
+        <br />
+
+        <b>Q: What kind of games do you make? RPG? Action?</b>
+        <br />
+        A: We won’t make VR, mobile, or console games. Other than that, we’ll decide on the genre and platform together with the cohort.
+        <br />
+        <br />
+
+        <b>Q: How do you pick the game?</b>
+        <br />
+        A: At the beginning of the semester, the entire cohort will brainstorm together and pitch their favorite ideas. The cohort’s favorite idea will be chosen and worked on for that semester.
+        <br />
+        <br />
+
+        <b>Q: Is everyone slotted into roles on the team?</b>
+        <br />
+        A: We’ll divide people into sub-teams (art, programming, design), but you’re encouraged to move around to experience different parts of the game development process.
+        <b> Every part of the game’s development will be accessible to every member. </b>
+        We’ll also have sub-team leads to provide leadership opportunities to students who want to focus on just one aspect of the game’s creation.
+        <br />
+        <br />
+
+        <b>Q: How much are dues?</b>
+        <br />
+        A: All members must pay a one-time $50 membership fee prior to taking part in any organization activity. 
+        This fee will go directly back to members in the form of cohort shirts, social events, production costs, and other club activities.
+        <br />
+        <br />
+        However, money should never be a barrier to entry—members who are not able to pay are encouraged to petition for scholarship or ask 
+        to be evaluated on a case-by-case basis by the executive board and club advisor.
+        <br />
+        <br />
+        
+        <b>Q: Do you have any interest meetings? </b>
+        <br />
+        A: Yes! We will have interest meetings before applications close every semester.
+        Come learn more about the process, hang out with the board, and ask any specific questions you have!
+        <br />
+        <br />
+        
+        <b>If you have any questions at all, don't hesitate to reach out at hello@openalphausc.com</b>
 </Typography>
-      <br />
-      <br />
-      <Typography variant="h6" color="secondary">
-        Build games with awesome people.
-  <br />
-  That's the idea Open Alpha was founded on. As a member, you'll make games with fellow students from the world's best games school.  You'll bring your own talent and vision to a real-world project in an exciting and fast-paced development environment. And best of all, you'll join the tight-knit Open Alpha family and partake in awesome community events throughout the semester.
-</Typography>
+      </div>
 
       <div>
 
-        <Typography variant="h5" color="secondary">
-          Renowned for talent across the board. Let's use that.
-  </Typography>
 
         <ScrollTop {...props}>
           <Fab color="secondary" size="small" aria-label="scroll back to top">

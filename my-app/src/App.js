@@ -10,6 +10,7 @@ import Home from './views/Home/content';
 import About from './views/About/about';
 import Projects from './views/Projects/projects';
 import Apply from './views/Apply/apply';
+import MailingList from './views/Mailinglist/mailinglist';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import {Tabs, Tab} from '@material-ui/core';
 import ToolbarGroup from '@material-ui/core/Toolbar';
@@ -84,6 +85,7 @@ export default function HideAppBar(props) {
           {/*<Route path="/members" component={Members}/>*/}
           <Route path="/apply" component={Apply}/>
           <Route path="/about" component={About}/>
+          <Route path="/mailinglist" component={MailingList}/>
       </Switch>
       </Router>
     </React.Fragment>
