@@ -7,6 +7,7 @@ import Zoom from '@material-ui/core/Zoom';
 import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
   images: {
     marginLeft: '25%',
-  }
+  },
 
 }));
 
@@ -87,21 +88,35 @@ export default function MediaCard(props) {
         <br />
         <br />
         <Typography
-          variant="h4"
+          variant="h2"
           align="center"
           color="secondary"
           gutterBottom="true">
-          Application page coming soon.
+          Applications open here at the beginning of each semester.
           </Typography>
 
 
         <Typography
-          variant="h4"
+          variant="body1"
           align="center"
           color="secondary"
           gutterBottom="true">
-          Application page coming soon.
+          Be the first to know when applications open.
           </Typography>
+      </div>
+      <div style=
+          {{justifyContent: 'center',
+          textAlign:'center'}}>
+
+          <Button 
+          variant="contained" 
+          color="secondary"
+          align="center"
+          href="#contained-buttons"
+          
+          >
+          Stay Updated
+        </Button>
       </div>
       <div id="">
         <Typography
