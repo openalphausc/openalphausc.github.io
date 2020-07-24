@@ -105,7 +105,7 @@ export default function MediaCard(props) {
         <br />
         <br />
         <Typography
-          variant="h3"
+          variant="h5"
           align="center"
           color="secondary"
           gutterBottom="true">
@@ -142,14 +142,21 @@ export default function MediaCard(props) {
 
       <Switch>
           <Route path="/mailinglist" component={MailingList}/>
-</Switch>
+      </Switch>
       <div style=
           {{justifyContent: 'center',
           textAlign:'center'}}>
-      <img src={greatGames} width="60%"/>
+          <img src={greatGames} width="60%"/>
       </div>
 
-      <img src={board} width="100%" MAXheight="646px" />
+        <br />
+        <br />
+
+        <img src={board} width="100%" />
+        <br />
+        <br />
+        <br />
+        <br />
 
       <div id="FAQTitle">
         <Typography
@@ -160,6 +167,7 @@ export default function MediaCard(props) {
           <b>FAQ</b>
           </Typography>
       </div>
+        <br />
 
       <div id="QA" className={classes.qa}>
         <Typography variant="h5" gutterBottom="true" color="secondary">
@@ -222,7 +230,7 @@ export default function MediaCard(props) {
         <br />
         
         <b>If you have any questions at all, don't hesitate to reach out at hello@openalphausc.com</b>
-</Typography>
+        </Typography>
       </div>
 
       <div>
