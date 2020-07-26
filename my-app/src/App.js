@@ -10,6 +10,7 @@ import Home from './views/Home/content';
 import About from './views/About/about';
 import Projects from './views/Projects/projects';
 import Apply from './views/Apply/apply';
+import Proj2020 from './views/Projects/spring2020';
 import MailingList from './views/Mailinglist/mailinglist';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import {Tabs, Tab} from '@material-ui/core';
@@ -81,7 +82,7 @@ export default function HideAppBar(props) {
 
       <Switch>
           <Route path="/" exact component={Home}/>
-          <Route path="/projects" component={Projects}/>
+          {/*<Route path="/projects" component={Proj2020}/>
           {/*<Route path="/members" component={Members}/>*/}
           <Route path="/apply" component={Apply}/>
           <Route path="/about" component={About}/>
