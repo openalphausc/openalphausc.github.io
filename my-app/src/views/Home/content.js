@@ -11,6 +11,7 @@ import Zoom from '@material-ui/core/Zoom';
 import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Toolbar from '@material-ui/core/Toolbar';
+import Box from '@material-ui/core/Box';
 
 
 console.log(logo);
@@ -88,7 +89,7 @@ export default function MediaCard(props) {
     <div>
     <Toolbar id="back-to-top-anchor" />
       <img className={classes.images} src={logo} width='50%'/>
-
+      
       <Typography
         variant="h4"
         align="center"
@@ -113,43 +114,48 @@ export default function MediaCard(props) {
       gutterBottom="true">
         Be the first to know when applications open.
       </Typography>
+      </div>
+
+
     
-    </div>
-    <br/>
-    <div>
-      <Typography variant="h6" gutterBottom="true" color="secondary">
-      o·pen al·pha
+      <Box bgcolor="secondary.main" color="secondary.contrastText" p={2}>
       <br/>
-      /ōpən alfə/
-      <br/>
-      noun
-      <br/>
-      a cycle of testing a game in an early stage, wherein the test group is much larger than that of closed testing and typically open to anyone who is interested.
+      <div>
+        <Typography variant="h6" gutterBottom="true" color="info">
+        o·pen al·pha
+        <br/>
+        /ōpən alfə/
+        <br/>
+        noun
+        <br/>
+        a cycle of testing a game in an early stage, wherein the test group is much larger than that of closed testing and typically open to anyone who is interested.
+        </Typography>
+        <br/>
+
+      
+      <Typography variant="h6" color="info">
+        Our Mission
+        <br/>
+        Bring a game from conception to an open-alpha release each development cycle (semester/year)
       </Typography>
       <br/>
-
-    </div>
-    <Typography variant="h6" color="secondary">
-      Our Mission
       <br/>
-      Bring a game from conception to an open-alpha release each development cycle (semester/year)
-    </Typography>
-    <br/>
-    <br/>
-    <Typography variant="h6" color="secondary">
-      Build games with awesome people.
-      <br/>
-      That's the idea Open Alpha was founded on. As a member, you'll make games with fellow students from the world's best games school.  You'll bring your own talent and vision to a real-world project in an exciting and fast-paced development environment. And best of all, you'll join the tight-knit Open Alpha family and partake in awesome community events throughout the semester.
-    </Typography>
-
-    <div>
-      <img src={viterbi} width="33%"/>
-      <img src={games} width="33%"/>
-      <img src={sca} width="33%"/>
-
-      <Typography variant="h5" color="secondary">
-      Renowned for talent across the board. Let's use that.
+      <Typography variant="h6" color="info">
+        Build games with awesome people.
+        <br/>
+        That's the idea Open Alpha was founded on. As a member, you'll make games with fellow students from the world's best games school.  You'll bring your own talent and vision to a real-world project in an exciting and fast-paced development environment. And best of all, you'll join the tight-knit Open Alpha family and partake in awesome community events throughout the semester.
       </Typography>
+
+
+      <div>
+        <img src={viterbi} width="33%"/>
+        <img src={games} width="33%"/>
+        <img src={sca} width="33%"/>
+
+        <Typography variant="h5" color="info">
+        Renowned for talent across the board. Let's use that.
+        </Typography>
+
 
     <ScrollTop {...props}>
         <Fab color="secondary" size="small" aria-label="scroll back to top">
@@ -158,6 +164,8 @@ export default function MediaCard(props) {
       </ScrollTop>
     </div>
 
+    </div>
+    </Box>
     </div>
   );
 }
