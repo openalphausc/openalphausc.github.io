@@ -12,6 +12,7 @@ import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Toolbar from '@material-ui/core/Toolbar';
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 
 
 console.log(logo);
@@ -34,7 +35,15 @@ const useStyles = makeStyles((theme) => ({
   },
   images: {
     marginLeft: '25%',
-  }
+  },
+  titling: {
+    // maxWidth: '65rem',
+    paddingRight: '5%',
+    paddingLeft: '5%',
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    paddingBottom: '6rem',
+  },
 
 }));
 
@@ -86,15 +95,16 @@ export default function MediaCard(props) {
 
   return (
     <div>
-    <div>
+    <div className={classes.titling}>
     <Toolbar id="back-to-top-anchor" />
       <img className={classes.images} src={logo} width='50%'/>
-      
+
       <Typography
         variant="h4"
         align="center"
         color="secondary"
-        gutterBottom="true">
+        gutterBottom="true"
+        fontWeight="700" >
           Where great games start.
       </Typography>
       <br/>
@@ -114,11 +124,33 @@ export default function MediaCard(props) {
       gutterBottom="true">
         Be the first to know when applications open.
       </Typography>
+      <div style=
+          {{justifyContent: 'center',
+          textAlign:'center'}}>
+
+          <Button 
+          variant="contained" 
+          color="secondary"
+          align="center"
+          href="/apply"
+          size="large"
+          >
+          Apply Now
+        </Button>
+        <br />
+        <br />
+        <br />
+        <br />
+
+
+      </div>
+
+
       </div>
 
 
     
-      <Box bgcolor="secondary.main" color="secondary.contrastText" p={2}>
+      <Box bgcolor="secondary.main" color="secondary.contrastText" paddingBottom="6rem" paddingRight="5%" p={2}>
       <br/>
       <div>
         <Typography variant="h6" gutterBottom="true" color="info">

@@ -11,6 +11,7 @@ import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
@@ -228,8 +229,12 @@ export default function MediaCard(props) {
         Come learn more about the process, hang out with the board, and ask any specific questions you have!
         <br />
         <br />
+        <br />
+        <br />
         
         <b>If you have any questions at all, don't hesitate to reach out at hello@openalphausc.com</b>
+        <br />
+        <br />
         </Typography>
       </div>
 
@@ -243,6 +248,10 @@ export default function MediaCard(props) {
         </ScrollTop>
       </div>
 
+      <Box bgcolor="secondary.main" color="secondary.contrastText" p={2}>
+      FOOTER
+
+      </Box>
     </div>
   );
 }
