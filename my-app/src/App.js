@@ -70,9 +70,9 @@ export default function HideAppBar(props) {
                     centered
                   >
                     <Tab label="Home" to="/" component={Link}/>
-                    <Tab label="About" to="/about" component={Link}/>
                     <Tab label="Projects" to="/projects" component={Link}/>
                     <Tab label="Apply" to="/apply" component={Link}/>
+                    <Tab label="About" to="/about" component={Link}/>
                   </Tabs>
                   </ToolbarGroup>
           </Toolbar>

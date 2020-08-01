@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
   bottomContainer: {
     flex: 1,
-    backgrounColor: 'secondary'
+    backgroundColor: 'secondary'
   },
   root: {
     position: 'fixed',
@@ -124,6 +124,7 @@ export default function MediaCard(props) {
       gutterBottom="true">
         Be the first to know when applications open.
       </Typography>
+        <br />
       <div style=
           {{justifyContent: 'center',
           textAlign:'center'}}>
