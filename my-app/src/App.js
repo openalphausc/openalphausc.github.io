@@ -94,7 +94,8 @@ const [anchorEl, setAnchorEl] = React.useState(null);
                     <Tab label="Home" to="/" component={Link}/>
                     
                     {/* Project section */}
-                    <Tab label="Projects" aria-controls="project-menu" aria-haspopup="true" onClick={handleClick} onMouseOver={handleClick}/>
+                    <Tab label="Projects" aria-controls="project-menu" aria-haspopup="true" onClick={handleClick} />
+                    {/* onMouseOver={handleClick} */}
           {/* aria-controls="project-menu" aria-haspopup="true" onClick={handleClick} onMouseOver={handleClick} */}
                     {/* <Tab label="Projects" to="/projects" component={Link}/> */}
                       <Menu
