@@ -11,6 +11,7 @@ import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
 import Box from '@material-ui/core/Box';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import FacebookIcon from '@material-ui/icons/Facebook';
@@ -255,10 +256,12 @@ export default function MediaCard(props) {
         </ScrollTop>
       </div>
 
+      <Divider />
       <Box bgcolor="secondary.main" className={classes.footer} p={2}>
       <div style=
           {{justifyContent: 'center',
-          textAlign:'center'}}>
+          textAlign:'center'}}
+          >
       <Button 
         variant="text"
           color="highlight"
@@ -287,6 +290,8 @@ export default function MediaCard(props) {
       </div>
 
       </Box>
+
+
     </div>
   );
 }

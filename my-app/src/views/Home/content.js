@@ -13,6 +13,11 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Toolbar from '@material-ui/core/Toolbar';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import { Grid } from '@material-ui/core';
 
 
 console.log(logo);
@@ -42,7 +47,21 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: '5%',
     marginRight: 'auto',
     marginLeft: 'auto',
+    paddingTop: '1rem',
     paddingBottom: '6rem',
+  },
+  description: {
+    maxWidth: '136rem',
+    paddingTop: '1rem',
+    paddingRight: '10%',
+    paddingLeft: '10%',
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    paddingBottom: '6rem',
+  },
+  footer: {
+    paddingTop:'5rem',
+    paddingBottom:'5rem',
   },
 
 }));
@@ -108,6 +127,21 @@ export default function MediaCard(props) {
           Where great games start.
       </Typography>
       <br/>
+      <div style=
+        {{justifyContent: 'center',
+        textAlign:'center'}}>
+
+          <Button 
+          variant="contained" 
+          color="secondary"
+          align="center"
+          href="/apply"
+          size="large"
+          >
+          Apply Now
+        </Button>
+      </div>
+
       <br/>
       <Typography
         variant="h4"
@@ -125,26 +159,7 @@ export default function MediaCard(props) {
         Be the first to know when applications open.
       </Typography>
         <br />
-      <div style=
-          {{justifyContent: 'center',
-          textAlign:'center'}}>
-
-          <Button 
-          variant="contained" 
-          color="secondary"
-          align="center"
-          href="/apply"
-          size="large"
-          >
-          Apply Now
-        </Button>
-        <br />
-        <br />
-        <br />
-        <br />
-
-
-      </div>
+      
 
 
       </div>
@@ -153,13 +168,20 @@ export default function MediaCard(props) {
     
       <Box bgcolor="secondary.main" color="secondary.contrastText" paddingBottom="6rem" paddingRight="5%" p={2}>
       <br/>
-      <div>
+      <div className={classes.description}>
         <Typography variant="h6" gutterBottom="true" color="info">
-        o·pen al·pha
+        <span style=
+            {{
+            fontWeight: 700,
+            fontSize: '30px',
+            }}
+          >
+          o·pen al·pha
+        </span>
         <br/>
         /ōpən alfə/
         <br/>
-        noun
+        <i>noun</i>
         <br/>
         a cycle of testing a game in an early stage, wherein the test group is much larger than that of closed testing and typically open to anyone who is interested.
         </Typography>
@@ -167,29 +189,54 @@ export default function MediaCard(props) {
 
       
       <Typography variant="h6" color="info">
-        Our Mission
+      <span style=
+            {{
+            fontWeight: 700,
+            fontSize: '30px',
+            }}
+          >
+          Our Mission
+        </span>
         <br/>
         Bring a game from conception to an open-alpha release each development cycle (semester/year)
       </Typography>
       <br/>
       <br/>
       <Typography variant="h6" color="info">
-        Build games with awesome people.
+      <span style=
+            {{
+            fontWeight: 700,
+            fontSize: '30px',
+            }}
+          >
+          Build games with awesome people.
+          </span>
         <br/>
         That's the idea Open Alpha was founded on. As a member, you'll make games with fellow students from the world's best games school.  You'll bring your own talent and vision to a real-world project in an exciting and fast-paced development environment. And best of all, you'll join the tight-knit Open Alpha family and partake in awesome community events throughout the semester.
+
       </Typography>
+      <br/>
+      <br/>
+      <br/>
 
 
       <div>
-        <img src={viterbi} width="33%"/>
-        <img src={games} width="33%"/>
-        <img src={sca} width="33%"/>
 
-        <Typography variant="h5" color="info">
-        Renowned for talent across the board. Let's use that.
-        </Typography>
-
-
+        <Grid
+          container
+          spacing={3}
+          direction="row"
+          justify="space-around"
+          alignItems="center"
+          alignContent="stretch"
+          wrap="nowrap"
+            
+        >
+          
+        <img src={viterbi} width="30%" alt="University of Southern California Viterbi School of Engineering Logo"/>
+                <img src={games} alt="University of Southern California (USC) Games Department Logo" width="30%"/>
+                <img src={sca} alt="University of Southern California School of Cinematic Arts Logo" width="30%"/>
+        </Grid>
     <ScrollTop {...props}>
         <Fab color="secondary" size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
@@ -199,6 +246,42 @@ export default function MediaCard(props) {
 
     </div>
     </Box>
+
+    <Divider />
+      <Box bgcolor="secondary.main" className={classes.footer} p={2}>
+      <div style=
+          {{justifyContent: 'center',
+          textAlign:'center'}}
+          >
+      <Button 
+        variant="text"
+          color="highlight"
+          align="center"
+          href="https://www.facebook.com/OpenAlphaUSC/"
+          size="large">
+            <FacebookIcon fontSize="large"/>
+      </Button>
+      <Button 
+        variant="text"
+          color="highlight"
+          align="center"
+          href="https://www.instagram.com/openalphausc/"
+          size="large">
+            <InstagramIcon fontSize="large"/>
+      </Button>
+      <Button 
+        variant="text"
+          color="inherit"
+          align="center"
+          href="https://www.linkedin.com/company/openalphausc/"
+          size="large">
+            <LinkedInIcon fontSize="large"/>
+      </Button>
+        
+      </div>
+
+      </Box>
+
     </div>
   );
 }

@@ -11,8 +11,9 @@ import About from './views/About/about';
 import Projects from './views/Projects/projects';
 import Apply from './views/Apply/apply';
 import MailingList from './views/Mailinglist/mailinglist';
-import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
-import {Tabs, Tab} from '@material-ui/core';
+import NotFoundPage from './views/NotFoundPage/notfoundpage'
+import {BrowserRouter as Router, Route, Link, Switch, Redirect} from 'react-router-dom';
+import {Tabs, Tab, Menu, MenuItem} from '@material-ui/core';
 import ToolbarGroup from '@material-ui/core/Toolbar';
 
 
@@ -47,6 +48,17 @@ export default function HideAppBar(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+// test content for menu
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -63,6 +75,11 @@ export default function HideAppBar(props) {
                 marginLeft : 'auto',
                 marginRight : 'auto'
               }}>
+
+
+            
+
+                
                   <Tabs
                     value={value}
                     onChange={handleChange}
@@ -70,7 +87,31 @@ export default function HideAppBar(props) {
                     centered
                   >
                     <Tab label="Home" to="/" component={Link}/>
-                    <Tab label="Projects" to="/projects" component={Link}/>
+                    
+                    {/* Project section */}
+                    <Tab label="Projects" aria-controls="project-menu" aria-haspopup="true" onClick={handleClick} onMouseOver={handleClick} />
+                    {/* <Tab label="Projects" to="/projects" component={Link}/> */}
+                      <Menu
+                        id="project-menu"
+                        anchorEl={anchorEl}
+                        keepMounted
+                        open={Boolean(anchorEl)}
+                        onClose={handleClose}
+                        elevation={0}
+                        getContentAnchorEl={null}
+                        anchorOrigin={{
+                          vertical: 'bottom',
+                          horizontal: 'center',
+                        }}
+                        transformOrigin={{
+                          vertical: 'top',
+                          horizontal: 'center',
+                        }}
+                      >
+                        <MenuItem href="/mailinglist" onClick={handleClose} onMouseOut={handleClose} >Spring 2020</MenuItem>
+                      </Menu>
+
+
                     <Tab label="Apply" to="/apply" component={Link}/>
                     <Tab label="About" to="/about" component={Link}/>
                   </Tabs>
@@ -86,6 +127,9 @@ export default function HideAppBar(props) {
           <Route path="/apply" component={Apply}/>
           <Route path="/about" component={About}/>
           <Route path="/mailinglist" component={MailingList}/>
+          <Route path="/404" component={NotFoundPage}/>
+
+          <Redirect to="/404" />
       </Switch>
       </Router>
     </React.Fragment>
