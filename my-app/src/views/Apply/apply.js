@@ -47,10 +47,12 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 'auto',
     marginLeft: 'auto',
   },
+  // Footer styling
   footer: {
     paddingTop:'5rem',
     paddingBottom:'5rem',
   },
+  // End of Footer styling
 
 }));
 
@@ -256,6 +258,7 @@ export default function MediaCard(props) {
         </ScrollTop>
       </div>
 
+{/* FOOTER */}
       <Divider />
       <Box bgcolor="secondary.main" className={classes.footer} p={2}>
       <div style=
@@ -291,6 +294,7 @@ export default function MediaCard(props) {
 
       </Box>
 
+{/* END OF FOOTER */}
 
     </div>
   );
