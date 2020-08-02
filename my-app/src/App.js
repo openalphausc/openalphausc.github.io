@@ -54,37 +54,15 @@ export default function HideAppBar(props) {
     setValue(newValue);
   };
 // test content for menu
-const [open, setOpen] = React.useState(false);
-const anchorRef = React.useRef(null);
+const [anchorEl, setAnchorEl] = React.useState(null);
 
-const handleToggle = () => {
-  setOpen((prevOpen) => !prevOpen);
-};
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-const handleClose = (event) => {
-  if (anchorRef.current && anchorRef.current.contains(event.target)) {
-    return;
-  }
-
-  setOpen(false);
-};
-
-function handleListKeyDown(event) {
-  if (event.key === 'Tab') {
-    event.preventDefault();
-    setOpen(false);
-  }
-}
-
-// return focus to the button when we transitioned from !open -> open
-const prevOpen = React.useRef(open);
-React.useEffect(() => {
-  if (prevOpen.current === true && open === false) {
-    anchorRef.current.focus();
-  }
-
-  prevOpen.current = open;
-}, [open]);
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <React.Fragment>
@@ -116,13 +94,10 @@ React.useEffect(() => {
                     <Tab label="Home" to="/" component={Link}/>
                     
                     {/* Project section */}
-                    <Tab label="Projects" ref={anchorRef}
-          aria-controls={open ? 'menu-list-grow' : undefined}
-          aria-haspopup="true"
-          onClick={handleToggle} />
+                    <Tab label="Projects" aria-controls="project-menu" aria-haspopup="true" onClick={handleClick} onMouseOver={handleClick}/>
           {/* aria-controls="project-menu" aria-haspopup="true" onClick={handleClick} onMouseOver={handleClick} */}
                     {/* <Tab label="Projects" to="/projects" component={Link}/> */}
-                      {/* <Menu
+                      <Menu
                         id="project-menu"
                         anchorEl={anchorEl}
                         keepMounted
@@ -139,27 +114,12 @@ React.useEffect(() => {
                           horizontal: 'center',
                         }}
                       >
-                        <MenuItem href="/mailinglist" onClick={handleClose} onMouseOut={handleClose} >Spring 2020</MenuItem>
-                      </Menu> */}
+                          <MenuItem to="/spring2020" component={Link} onClick={handleClose}  >Spring 2020</MenuItem>
+                          <MenuItem to="/fall2020" component={Link} onClick={handleClose} >Fall 2020</MenuItem>
+                        
+                      </Menu>
 
-                      <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-            >
-              <Paper>
-                <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
-                  </MenuList>
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-          )}
-        </Popper>
+                      
 
                     <Tab label="Apply" to="/apply" component={Link}/>
                     <Tab label="About" to="/about" component={Link}/>
