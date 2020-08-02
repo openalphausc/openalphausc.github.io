@@ -94,14 +94,15 @@ const [anchorEl, setAnchorEl] = React.useState(null);
                     <Tab label="Home" to="/" component={Link}/>
                     
                     {/* Project section */}
-                    <Tab label="Projects" aria-controls="project-menu" aria-haspopup="true" onClick={handleClick} />
+                    <Tab label="Projects" aria-controls="project-menu" aria-haspopup="true" onClick={handleClick} disableRipple/>
                     {/* onMouseOver={handleClick} */}
-          {/* aria-controls="project-menu" aria-haspopup="true" onClick={handleClick} onMouseOver={handleClick} */}
+                    {/* aria-controls="project-menu" aria-haspopup="true" onClick={handleClick} onMouseOver={handleClick} */}
                     {/* <Tab label="Projects" to="/projects" component={Link}/> */}
                       <Menu
                         id="project-menu"
                         anchorEl={anchorEl}
-                        keepMounted
+                        disableAutoFocus="true"
+                        autoFocus="false"
                         open={Boolean(anchorEl)}
                         onClose={handleClose}
                         elevation={0}
@@ -114,6 +115,7 @@ const [anchorEl, setAnchorEl] = React.useState(null);
                           vertical: 'top',
                           horizontal: 'center',
                         }}
+                        disableAutoFocusItem
                       >
                           <MenuItem to="/spring2020" component={Link} onClick={handleClose}  >Spring 2020</MenuItem>
                           <MenuItem to="/fall2020" component={Link} onClick={handleClose} >Fall 2020</MenuItem>
