@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: '5%',
     marginRight: 'auto',
     marginLeft: 'auto',
-    height:'100vh',
+    minHeight:'100vh',
   },
 
 }));
