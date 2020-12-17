@@ -8,7 +8,25 @@
     <script src="libraries/p5.js" type="text/javascript"></script>
 
     <script src="libraries/p5.dom.js" type="text/javascript"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyA7-uF7pExpFUfreiyHILJ44iV6K5wIkHg",
+        authDomain: "fall2020steamkeys.firebaseapp.com",
+        projectId: "fall2020steamkeys",
+        storageBucket: "fall2020steamkeys.appspot.com",
+        messagingSenderId: "968642904822",
+        appId: "1:968642904822:web:cd350468ae59ec3c5d62d7"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
 
     <script src="sketch.js" type="text/javascript"></script>
 
