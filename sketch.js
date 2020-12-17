@@ -34,11 +34,12 @@ function setup() {
     ref.push(data);
     // Input fields
     fruitInput = select('#fruit');
-    totalInput = select('#total');
+    totalRemaining = select('#total');
 
-    // Submit button
-    var submit = select('#submit');
-    submit.mousePressed(sendToFirebase);
+    // Retrieve button
+    var retrieve = select('#retrieve');
+    retrieve.mousePressed(sendToFirebase);
+    retrieve.mousePressed(getFromFirebase);
 
     // Start loading the data
     loadFirebase();
@@ -90,8 +91,7 @@ function sendToFirebase() {
 
     // Make an object with data in it
     var data = {
-        fruit: fruitInput.value(),
-        total: totalInput.value()
+        fruit: fruitInput.value()
     }
 
     var fruit = fruits.push(data, finished);
@@ -106,4 +106,9 @@ function sendToFirebase() {
             console.log('Data saved successfully');
         }
     }
+}
+
+function getFromFirebase(){
+    totalRemaining = select('#total');
+    totalRemaining.value = 0;
 }
